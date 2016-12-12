@@ -47,4 +47,12 @@ public class Message extends BaseDomain {
     public void setIp(String ip) {
         this.ip = ip;
     }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
+    }
 }
