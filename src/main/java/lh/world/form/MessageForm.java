@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class MessageForm {
     private String nickName;
+    private String email;
     private String content;
 
     public Message asMessage() {
@@ -33,5 +34,13 @@ public class MessageForm {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

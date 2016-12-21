@@ -12,13 +12,17 @@ import java.util.List;
 public class Message extends BaseDomain {
     @Column(name = "nick_name")
     private String nickName;
+
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "content", length = 500)
     private String content;
 
     @Column(name = "ip")
     private String ip;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "message")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "message")
     private List<Reply> replies = new ArrayList<>(0);
 
     public Message() {
@@ -30,6 +34,14 @@ public class Message extends BaseDomain {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getContent() {

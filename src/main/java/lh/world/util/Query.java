@@ -24,6 +24,11 @@ public class Query {
         this.direction = direction;
     }
 
+    public Query(int page, int size) {
+        this.page = page;
+        this.size = size;
+    }
+
     public int getPage() {
         return page;
     }

@@ -21,4 +21,5 @@ public class PersonalWebsiteApplication {
         registrationBean.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
         return registrationBean;
     }
+
 }

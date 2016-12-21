@@ -1,5 +1,6 @@
 package lh.world.config;
 
+import lh.world.filter.CORSResponseFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 
 /**
@@ -7,6 +8,7 @@ import org.glassfish.jersey.server.ResourceConfig;
  */
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
+        register(CORSResponseFilter.class);
         packages("lh.world.ws");
     }
 }

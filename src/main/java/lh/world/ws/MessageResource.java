@@ -10,10 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -29,7 +27,8 @@ public class MessageResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/list")
-    public AjaxResponse list(Query query) {
+    public AjaxResponse list(@QueryParam("page") Integer page, @QueryParam("size") Integer size) {
+        Query query = new Query(page, size);
         Page<Message> messages = messageRepository.findAll(query.getPageable());
         return AjaxResponse.ok().data(messages);
     }
@@ -37,7 +36,7 @@ public class MessageResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/add")
-    public AjaxResponse add(MessageForm form, HttpServletRequest request) {
+    public AjaxResponse add(MessageForm form,@Context HttpServletRequest request) {
         Message message = form.asMessage();
         message.setIp(request.getRemoteHost());
         message = messageRepository.save(message);

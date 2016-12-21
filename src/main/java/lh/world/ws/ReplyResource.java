@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -29,7 +30,7 @@ public class ReplyResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/add")
-    public AjaxResponse add(ReplyForm form, HttpServletRequest request) {
+    public AjaxResponse add(ReplyForm form, @Context HttpServletRequest request) {
         Message message = messageRepository.findOne(form.getMessageId());
         if (message == null) {
             return AjaxResponse.fail().msg("资源不存在");
