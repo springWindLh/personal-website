@@ -1,5 +1,7 @@
 package lh.world.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +18,7 @@ public class Reply extends BaseDomain {
     @Column(name = "ip")
     private String ip;
 
+    @JSONField(serialize = false)
     @ManyToOne
     @JoinColumn(name = "message_id")
     private Message message;

@@ -1,5 +1,6 @@
 package lh.world.config;
 
+import com.colobu.fastjson.FastJsonProvider;
 import lh.world.filter.CORSResponseFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -9,6 +10,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class JerseyConfig extends ResourceConfig {
     public JerseyConfig() {
         register(CORSResponseFilter.class);
+        register(FastJsonProvider.class);
         packages("lh.world.ws");
     }
 }

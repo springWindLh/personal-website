@@ -16,6 +16,7 @@ public class MessageForm {
         Message message = new Message();
         message.setNickName(this.getNickName());
         message.setContent(this.getContent());
+        message.setEmail(this.getEmail());
         message.setCreatedTime(new Date());
         return message;
     }
