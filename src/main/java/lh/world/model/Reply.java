@@ -18,9 +18,9 @@ public class Reply extends BaseDomain {
     @Column(name = "ip")
     private String ip;
 
-    @JSONField(serialize = false)
     @ManyToOne
     @JoinColumn(name = "message_id")
+    @JSONField(serialize = false)
     private Message message;
 
     public Reply() {
